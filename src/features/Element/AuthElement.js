@@ -20,12 +20,8 @@ const drawerWidth = 240;
 
 const menu = [
   {
-    name: "hi",
-    subcategoty: [
-      { name: "Add hi", link: "/addproduct" },
-      { name: "Edit hi", link: "/editproduct" },
-      { name: "Delete hi", link: "/deleteproduct" },
-    ],
+    name: "Dashboard",
+    link: "/",
   },
   {
     name: "Customer",
@@ -34,6 +30,24 @@ const menu = [
   {
     name: "Product",
     link: "/product",
+  },
+  {
+    name: "Users",
+    subcategoty: [
+      { name: "Branch", link: "/branch" },
+      { name: "User", link: "/user" },
+      { name: "Role", link: "/role" },
+    ],
+  },
+  {
+    name: "Setting",
+    subcategoty: [
+      { name: "Setting", link: "/setting" },
+      { name: "Tax Rates", link: "/tax" },
+      { name: "Category", link: "/catefory" },
+      { name: "Table", link: "/table" },
+      { name: "Change Password", link: "/password" },
+    ],
   },
 ];
 

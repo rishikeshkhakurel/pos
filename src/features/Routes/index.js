@@ -2,6 +2,7 @@ import React from "react";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import Dashboard from "../Dashboard/view/index";
 import AuthElement from "../Element/AuthElement";
+import LoginElement from "../Element/LoginElement";
 
 const AppRoutes = () => {
   return (
@@ -9,6 +10,9 @@ const AppRoutes = () => {
       <Routes>
           <Route path="/" element={<AuthElement />}>
             <Route path="/" element={<Dashboard />} />
+            <Route path="*" element={<Dashboard />} />
+          </Route>
+          <Route path="/" element={<LoginElement />}>
           </Route>
           
       </Routes>

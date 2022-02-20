@@ -18,6 +18,8 @@ import { Link, Outlet } from "react-router-dom";
 import KeyboardArrowDownIcon from "@mui/icons-material/KeyboardArrowDown";
 import PP from "../../common/assets/rishi.jpg";
 import ArrowDropDownIcon from "@mui/icons-material/ArrowDropDown";
+import { useDispatch } from "react-redux";
+import userSlice from "../../redux/slice/User.Slice";
 
 const drawerWidth = 240;
 
@@ -60,6 +62,12 @@ const AuthElement = (props) => {
   const [collapse, setcollapse] = useState("");
   const [setting, setSetting] = useState(false);
   console.log("setting", setting);
+  const dispatch = useDispatch();
+
+  const logout = () => {
+    dispatch(userSlice.actions.setData({ login: false }));
+    localStorage.setItem("login", false);
+  };
 
   const handleDrawerToggle = () => {
     setMobileOpen(!mobileOpen);
@@ -163,7 +171,12 @@ const AuthElement = (props) => {
         onMouseEnter={() => setSetting(true)}
         onMouseLeave={() => setSetting(false)}
       >
-        <ListItem variant="h4" sx={{ color: "black", p: 2 }} button>
+        <ListItem
+          onClick={logout}
+          variant="h4"
+          sx={{ color: "black", p: 2 }}
+          button
+        >
           <Typography variant="h4">Logout</Typography>
         </ListItem>
       </List>

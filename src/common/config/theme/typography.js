@@ -62,6 +62,11 @@ export function themeTypography(theme) {
       lineHeight: '1.5em',
       color: theme.darkTextPrimary,
     },
+    error: {
+      fontSize: '0.875rem',
+      fontWeight: 500,
+      color: theme.colors.errorMain,
+    },
     customInput: {
       marginTop: 8,
       marginBottom: 8,

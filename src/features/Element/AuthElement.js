@@ -1,5 +1,6 @@
 import {
   AppBar,
+  Avatar,
   Box,
   Collapse,
   Divider,
@@ -15,6 +16,7 @@ import MenuIcon from "@mui/icons-material/Menu";
 import React, { useState } from "react";
 import { Link, Outlet } from "react-router-dom";
 import KeyboardArrowDownIcon from "@mui/icons-material/KeyboardArrowDown";
+import PP from "../../common/assets/rishi.jpg";
 
 const drawerWidth = 240;
 
@@ -165,14 +167,29 @@ const AuthElement = (props) => {
           >
             <MenuIcon />
           </IconButton>
-          <Typography
-            variant="h2"
-            noWrap
-            component="div"
-            sx={{ color: "white" }}
-          >
-            POS
-          </Typography>
+          <Box sx={{ display: "flex", width: "100%", justifyContent: "space-between" }}>
+            <Box>
+              <Typography
+                variant="h2"
+                noWrap
+                component="div"
+                sx={{ color: "white" }}
+              >
+                POS
+              </Typography>
+            </Box>
+            <Box sx={{ display: "flex", alignItems:"center"}} >
+              <Avatar alt="PP" src={PP} />
+              <Typography
+                variant="h3"
+                noWrap
+                component="div"
+                sx={{ color: "white", ml:2 }}
+              >
+                Rishikesh Khakurel
+              </Typography>
+            </Box>
+          </Box>
         </Toolbar>
       </AppBar>
       <Box

@@ -28,13 +28,13 @@ const useProduct = () => {
   }
 
   const rows = [
-    createData(1, "Wrap", "Main Course", "brand", "Active"),
-    createData(2, "veg Wrap", "Main Course", "brand", "Active"),
-    createData(3, "c. Wrap", "Main Course", "brand", "Active"),
-    createData(4, "Wrap", "Main Course", "brand", "Active"),
-    createData(5, "Wrap", "Main Course", "brand", "Active"),
-    createData(6, "Wrap", "Main Course", "brand", "Active"),
-    createData(7, "Wrap", "Main Course", "brand", "Active"),
+    createData(1, "Wrap", "Main Course", "brand", false),
+    createData(2, "veg Wrap", "Main Course", "brand", true),
+    createData(3, "c. Wrap", "Main Course", "brand", true),
+    createData(4, "Wrap", "Main Course", "brand", true),
+    createData(5, "Wrap", "Main Course", "brand", true),
+    createData(6, "Wrap", "Main Course", "brand", true),
+    createData(7, "Wrap", "Main Course", "brand", true),
   ];
 
   useEffect(() => {

@@ -18,16 +18,20 @@ function AddProduct() {
     setformvalue,
   } = useProduct();
 
-  // const editdata = useSelector((state) => state.editSlice.data);
-  // useEffect(() => {
-  //   if (editdata.id === "product") {
-  //     console.log(editdata);
-  //     setformvalue(editdata.data);
-  //   }
-  // }, [editdata, setformvalue]);
+  const editdata = useSelector((state) => state.editSlice.data);
+  useEffect(() => {
+    if (editdata.id === "product") {
+      console.log(editdata);
+      setformvalue(editdata.data);
+    }
+  }, [editdata, setformvalue]);
   return (
     <Paper sx={{ mt: 2, mb: 2 }}>
-      {/* <form onSubmit={!editdata.id==='product'? handleProductAdd : handleProductEdit}> */}
+      <form
+        onSubmit={
+          !editdata.id === "product" ? handleProductAdd : handleProductEdit
+        }
+      >
         <Paper
           container="div"
           sx={{ display: "flex", justifyContent: "space-between", flex: 1 }}
@@ -38,7 +42,7 @@ function AddProduct() {
             label="Product Name"
             name="ProductName"
             required
-            value={formvalue.ProdutName}
+            value={formvalue.product_name}
             InputLabelProps={{ shrink: true }}
             onChange={handleOnChange}
           />
@@ -47,7 +51,7 @@ function AddProduct() {
             id="filled-name"
             label="Category"
             name="Category"
-            value={formvalue.Category}
+            value={formvalue.category}
             InputLabelProps={{ shrink: true }}
             required
             onChange={handleOnChange}
@@ -57,7 +61,7 @@ function AddProduct() {
             id="filled-name"
             label="Brand"
             name="Brand"
-            value={formvalue.Brand}
+            value={formvalue.brand}
             InputLabelProps={{ shrink: true }}
             required
             onChange={handleOnChange}
@@ -66,23 +70,23 @@ function AddProduct() {
             sx={{ ml: 1, flex: 1 }}
             control={
               <Checkbox
+                value={formvalue.status}
                 defaultChecked
                 onChange={(e) => {
-                  console.log("clicked")
+                  console.log("clicked");
                 }}
               />
             }
             label="Status"
           />
         </Paper>
-        
+
         <Paper container="div" sx={{ mt: 2, ml: 1 }}>
           <Button type="submit" variant="contained">
-            {/* {editdata.id === "product" ? "Update" : "Submit"} */}
-            Submit
+            {editdata.id === "product" ? "Update" : "Submit"}
           </Button>
         </Paper>
-      {/* </form> */}
+      </form>
     </Paper>
   );
 }

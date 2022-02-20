@@ -17,6 +17,7 @@ import React, { useState } from "react";
 import { Link, Outlet } from "react-router-dom";
 import KeyboardArrowDownIcon from "@mui/icons-material/KeyboardArrowDown";
 import PP from "../../common/assets/rishi.jpg";
+import ArrowDropDownIcon from "@mui/icons-material/ArrowDropDown";
 
 const drawerWidth = 240;
 
@@ -57,6 +58,8 @@ const AuthElement = (props) => {
   const { window } = props;
   const [mobileOpen, setMobileOpen] = React.useState(false);
   const [collapse, setcollapse] = useState("");
+  const [setting, setSetting] = useState(false);
+  console.log("setting", setting);
 
   const handleDrawerToggle = () => {
     setMobileOpen(!mobileOpen);
@@ -146,6 +149,26 @@ const AuthElement = (props) => {
       </List>
     </div>
   );
+
+  const Setting = () => {
+    return (
+      <List
+        sx={{
+          background: "#e0e0e0",
+          position: "absolute",
+          zIndex: "999",
+          top: "70px",
+          width: "100%",
+        }}
+        onMouseEnter={() => setSetting(true)}
+        onMouseLeave={() => setSetting(false)}
+      >
+        <ListItem variant="h4" sx={{ color: "black", p: 2 }} button>
+          <Typography variant="h4">Logout</Typography>
+        </ListItem>
+      </List>
+    );
+  };
   const container =
     window !== undefined ? () => window().document.body : undefined;
   return (
@@ -157,7 +180,9 @@ const AuthElement = (props) => {
           ml: { sm: `${drawerWidth}px` },
         }}
       >
-        <Toolbar>
+        <Toolbar
+          sx={{ display: "flex", alignItems: "center", height: "70px", p: 0 }}
+        >
           <IconButton
             color="inherit"
             aria-label="open drawer"
@@ -167,7 +192,15 @@ const AuthElement = (props) => {
           >
             <MenuIcon />
           </IconButton>
-          <Box sx={{ display: "flex", width: "100%", justifyContent: "space-between" }}>
+          <Box
+            sx={{
+              display: "flex",
+              width: "100%",
+              height: "100%",
+              alignItems: "center",
+              justifyContent: "space-between",
+            }}
+          >
             <Box>
               <Typography
                 variant="h2"
@@ -178,16 +211,22 @@ const AuthElement = (props) => {
                 POS
               </Typography>
             </Box>
-            <Box sx={{ display: "flex", alignItems:"center"}} >
+            <Box
+              sx={{ display: "flex", alignItems: "center", height: "100%" }}
+              onMouseEnter={() => setSetting(true)}
+              onMouseLeave={() => setSetting(false)}
+            >
               <Avatar alt="PP" src={PP} />
               <Typography
                 variant="h3"
                 noWrap
                 component="div"
-                sx={{ color: "white", ml:2 }}
+                sx={{ color: "white", ml: 2 }}
               >
                 Rishikesh Khakurel
               </Typography>
+              <ArrowDropDownIcon />
+              {setting && <Setting />}
             </Box>
           </Box>
         </Toolbar>

@@ -330,7 +330,7 @@ const MuiTable = (props) => {
         </TableContainer>
         {dense ? (
           <TablePagination
-            rowsPerPageOptions={[5, 8]}
+            rowsPerPageOptions={[5, 10]}
             component="div"
             count={rows.length}
             rowsPerPage={rowsPerPage}

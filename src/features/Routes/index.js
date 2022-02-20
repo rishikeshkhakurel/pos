@@ -18,7 +18,7 @@ const AppRoutes = () => {
           <Route path="/" element={<AuthElement />}>
             <Route path="/" element={<Dashboard />} />
             <Route path="product" element={<Product />} />
-            <Route path="*" element={<Navigate to="/"/>} />
+            <Route path="*" element={<Navigate to="/product"/>} />
           </Route>
         )}
         {!login.data.login && (
